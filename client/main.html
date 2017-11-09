@@ -1,0 +1,33 @@
+<!--
+    Assignment I
+    for the NTHU course "Basic Web Linguistic Application Development"
+    Last Updated on Nov 6, 2017
+-->
+
+<head>
+  <!-- 網頁的抬頭 (出現在瀏覽器的標籤頁) -->
+  <title>My ELIZA</title>
+</head>
+
+<body>
+  <center>
+    <!-- 網頁的標題-->
+    <h1>This is my ELIZA!</h1>
+    <form>
+      <!-- 呈現對話的對話框 -->
+      <p>
+        <textarea id = "conversationBox" rows = "20" cols = "80" readOnly>ELIZA: Hello, how may I help you?</textarea>
+      </p>
+      <!-- 輸入以及送出文字的對話框 -->
+      <p>
+        <input type = "text" id = "myMsg" size = "80" placeholder = "Enter Your Message" />
+      </p>
+      <!-- Submit和reset按鈕。這兩個按鈕一定要放在<form></form>之間的範圍內
+      才會有預設的HTML功能 -->
+      <p>
+        <input type = "submit" id = "submitMsg" value = "Submit" />
+        <input type = "reset" id = "resetMsg" value = "Reset" />
+      </p>
+    </form>
+  </center>
+</body>
