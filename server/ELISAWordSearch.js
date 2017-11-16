@@ -20,7 +20,11 @@ wordSearch = function(msg, engLexicon) {
       allMatches = allMatches.fetch();
       for(index=0; index<10 ; index++)
       {
-        wordSearchResult = wordSearchResult+allMatches[index].Word+",";
+        var randomNum = Math.random()
+        randomNum = randomNum*allMatches.length;
+        randomNum = Math.floor(randomNum);
+
+        wordSearchResult = wordSearchResult+allMatches[randomNum].Word+",";
       }
       wordSearchResult = "There you go honey: "+wordSearchResult;
     }
