@@ -7,13 +7,20 @@
 
 //把msgRecords的mongoDB資料庫連結到msgRecords這個伺服器端的Global Variable
 msgRecords = new Mongo.Collection("msgRecords"); //請勿變更此行
-var engLexicon = new Mongo.Collection("engLexicon")
+var engLexicon = new Mongo.Collection("engLexicon");
 
 Meteor.startup(function(){
   //所有在程式啟動時會在伺服器執行的程式碼都會放在這裡
     engLexicon.remove({});
     var lexiconList = Assets.getText("engLexicon_1000.csv");
-    lexiconList = lexiconList.split("\r\n");
+    //lexiconList = lexiconList.split("\r\n");
+
+    if(lexiconList.indexOf("\r\n")>-1)
+    {
+      lexiconList.replace(/\r\n/g, "\n");
+    }
+    lexiconList = lexiconList.split("\n");
+
     console.log(lexiconList[0]);
     for(index=0 ; index<lexiconList.length; index++)
     {
@@ -68,9 +75,13 @@ Meteor.methods({
 var processMsg = function(msg) {  //請勿變更此行
   //建立一個processResults變數儲存訊息運算處理的結果
   var processResults = "";  //請勿變更此行
+  var emotion = "", msgWordsPOS= [];
   //「以下」是你可以編輯的部份，請將你的ELIZA處理訊息的核心程式碼放在以下的段落內
+  emotion= emotionChecker(msg);
+
   processResults = socialResponse(msg);
 
+  msgWordsPOS= posIdentifier(msg, engLexicon);
   if(processResults === "")
   {
     processResults = wordSearch(msg, engLexicon);
@@ -80,11 +91,12 @@ var processMsg = function(msg) {  //請勿變更此行
   {
     processResults = posSearch(msg,engLexicon);
   }
+
   //目前完全沒有訊息處理。所以processResults一定是空字串
   //這邊在判斷processResults是空字串的時候會放進一個預設的訊息
   if(processResults === "")
   {
-    processResults = "Hello world!";
+    processResults = chooseRandomResponse(msg, msgWordsPOS, emotion, engLexicon);
   }
 
   //「以上」是你可以編輯的部份，請將你的ELIZA處理訊息的核心程式碼放在以上的段落內
