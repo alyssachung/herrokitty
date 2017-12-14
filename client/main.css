@@ -1,1 +1,50 @@
-/* CSS declarations go here */
+body{
+  font-family: "Trebuchet MS". sans-serif;
+  text-align: center;
+  color:white;
+  background-color: black;
+
+  }/* CSS declarations go here */
+.highlight{
+  color:white;
+  background-color: teal;
+  font-weight: bold;
+
+}
+
+a{
+  color:red;
+  text-decoration: none;
+}
+a:visited{
+  color:fuchsia;
+}
+#submitMsg,#resetMsg{
+  background-color: black;
+  color: white;
+  font-family: sans-serif;
+  font-size: 14px;
+  padding:4px;
+  border-radius: 5px;
+}
+#submitMsg:hover,#resetMsg:hover{
+  background-color: white;
+  color: pink;
+  font-weight: bold;
+
+}
+#conversationBox, #myMsg{
+  color:white;
+  background-color: gray;
+}
+
+#conversationBox{
+  height: 200px;
+  width: 800px;
+}
+
+#intro{
+  margin:10px, 100px, 10px, 100px; /*counterclockwise*/
+  padding: 0px,20px,0px,20px;
+text-align: left;
+}

@@ -10,12 +10,12 @@ msgRecords = new Mongo.Collection("msgRecords"); //請勿變更此行
 var engLexicon = new Mongo.Collection("engLexicon");
 
 Meteor.startup(function(){
-    var str1 = "What is the weather in Taipei tomorrow?";
-    var str2 = "Is the weather going to be bad in Taipei?";
-    var str3 = "I wonder what the temperature will be in Taipei tomorrow?";
+  //  var str1 = "What is the weather in Taipei tomorrow?";
+  //  var str2 = "Is the weather going to be bad in Taipei?";
+  //  var str3 = "I wonder what the temperature will be in Taipei tomorrow?";
 
     //var strKeyword = "abcdeFGHIJK1234567 *?!";
-    var regexpKeyword = /(temperature|weather).*in (\w+)/i; //ans will be K1
+  //  var regexpKeyword = /(temperature|weather).*in (\w+)/i; //ans will be K1
     //\w\W ans will be "7 "
     //\d+ 出現一次以上的數字的字串 包含一個數字以上的部分
     //Dd num and non-num combination
@@ -25,9 +25,9 @@ Meteor.startup(function(){
     //console.log("String:"+str.replace(strKeyword, "hohoho"));
     //console.log("Regexp:"+str.replace(regexpKeyword, "hohoho"));
       //console.log("Regexp:"+str.replace(regexpKeyword, "K1"));
-    console.log("Str1:"+str1.match(regexpKeyword));
-    console.log("Str2:"+str2.match(regexpKeyword));
-    console.log("Str3:"+str2.match(regexpKeyword));
+  //  console.log("Str1:"+str1.match(regexpKeyword));
+  //  console.log("Str2:"+str2.match(regexpKeyword));
+  //  console.log("Str3:"+str2.match(regexpKeyword));
   //所有在程式啟動時會在伺服器執行的程式碼都會放在這裡
     /*engLexicon.remove({});
     var lexiconList = Assets.getText("engLexicon_1000.csv");
@@ -100,6 +100,7 @@ var processMsg = function(msg) {  //請勿變更此行
   processResults = socialResponse(msg);
 
   msgWordsPOS= posIdentifier(msg, engLexicon);
+
   if(processResults === "")
   {
     processResults = wordSearch(msg, engLexicon);
@@ -107,7 +108,7 @@ var processMsg = function(msg) {  //請勿變更此行
 
   if(processResults === "")
   {
-    processResults = posSearch(msg,engLexicon);
+    processResults = weatherInfo(msg);
   }
 
   //目前完全沒有訊息處理。所以processResults一定是空字串
