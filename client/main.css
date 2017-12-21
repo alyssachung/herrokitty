@@ -1,4 +1,5 @@
 body{
+  margin: 0;
   font-family: "Trebuchet MS". sans-serif;
   text-align: center;
   color:white;
@@ -11,7 +12,73 @@ body{
   font-weight: bold;
 
 }
+/* .colorbox{
+  height: 50px;
+  width: 50px;
+}
+#colorboxinner{
+  position: fixed;
+  z-index:2 ;
+  background-color: red;
+  top:60px;
+  left:60px;
+}
+#colorboxcenter{
+  position: fixed;
+  z-index:0 ;
+  background-color: yellow;
+  top:80px;
+  left:80px;
+}
+#colorboxouter{
+  position: fixed;
+  z-index:1 ;
+  background-color: blue;
+  top:100px;
+  left:100px;
+} */
+#titlesection{
+  position:fixed;
+  top: 0;
+  height:64px;
+  width: 100%;
+  background-color:#000066;
+  color: #FFFFFF;
+  font-family: "Courier New", sans-serif;
+  font-size: 64px;
+  font-style:bold;
+  line-height:64px;
+}
 
+#contentsection{
+  margin: 64px 0 0 0;
+  padding:20px;
+  background-color: teal;
+  color: #FFFFFF;
+}
+#introsection{
+  width:600px;
+  padding:5px;
+  border: 2px dotted white ;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 16px;
+  text-align: center;
+}
+#outerdiv{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height:50px;
+  width:50px;
+  background-color: yellow;
+}
+#innerdiv{
+  position: relative;
+  transform: translate(-50%,-50%)
+  height: 50px;
+  width: 50px;
+  background-color: YELLOW;
+}
 a{
   color:red;
   text-decoration: none;
@@ -26,23 +93,45 @@ a:visited{
   font-size: 14px;
   padding:4px;
   border-radius: 5px;
+  cursor: pointer;
+
 }
 #submitMsg:hover,#resetMsg:hover{
-  background-color: white;
-  color: pink;
+  background-color: pink;
+  color: white;
   font-weight: bold;
 
 }
-#conversationBox, #myMsg{
-  color:white;
-  background-color: gray;
-}
+
 
 #conversationBox{
-  height: 200px;
+  height: 400px;
   width: 800px;
-}
+  padding: 5px;
+  border: none;
+  background-color: black;
+  color:white;
+  font-size:12px;
+  line-height: 16px;
 
+}
+#myMsg{
+  height:10px;
+  width:500px;
+  padding: 5px;
+  border:3px dotted aqua;
+  background-color: fuchsia;
+}
+#submittingMsg{
+  position: fixed;
+  top:50%;
+  left:50%;
+  display: none;
+}
+#submittingMsgcontent{
+  position: relative;
+  transform: translate(-50%, -50%);
+}
 #intro{
   margin:10px, 100px, 10px, 100px; /*counterclockwise*/
   padding: 0px,20px,0px,20px;
