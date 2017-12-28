@@ -8,8 +8,11 @@
 //把msgRecords的mongoDB資料庫連結到msgRecords這個伺服器端的Global Variable
 msgRecords = new Mongo.Collection("msgRecords"); //請勿變更此行
 var engLexicon = new Mongo.Collection("engLexicon");
+nGramDB = new Mongo.Collection("nGramDB");
+
 
 Meteor.startup(function(){
+  loadTrainingData();
   //  var str1 = "What is the weather in Taipei tomorrow?";
   //  var str2 = "Is the weather going to be bad in Taipei?";
   //  var str3 = "I wonder what the temperature will be in Taipei tomorrow?";
