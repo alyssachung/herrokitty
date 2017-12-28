@@ -104,6 +104,6 @@ var processNGram= function(str){
     nGramDB.update({type:"monogramFreq"}, {$inc:{totalFreq:1}});
 
   }
-  console.log(nGramDB.find({type:"monogram", rawFreq:{$gte:50}}).fetch());
+  //console.log(nGramDB.find({type:"monogram", rawFreq:{$gte:50}}).fetch());
   //console.log(nGramDB.find({rawFreq:{$gte:5}}).fetch());
 };
