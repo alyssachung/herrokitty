@@ -12,11 +12,7 @@ nGramDB = new Mongo.Collection("nGramDB");
 
 
 Meteor.startup(function(){
-  loadTrainingData();
-  //  var str1 = "What is the weather in Taipei tomorrow?";
-  //  var str2 = "Is the weather going to be bad in Taipei?";
-  //  var str3 = "I wonder what the temperature will be in Taipei tomorrow?";
-
+  //loadTrainingData();
     //var strKeyword = "abcdeFGHIJK1234567 *?!";
   //  var regexpKeyword = /(temperature|weather).*in (\w+)/i; //ans will be K1
     //\w\W ans will be "7 "
@@ -112,6 +108,13 @@ var processMsg = function(msg) {  //請勿變更此行
   if(processResults === "")
   {
     processResults = weatherInfo(msg);
+  }
+
+  //console.log(msg);
+
+  if(processResults === "")
+  {
+    processResults = produceAIArticle(msg);
   }
 
   //目前完全沒有訊息處理。所以processResults一定是空字串
